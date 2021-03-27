@@ -1,10 +1,9 @@
-2021-03-25 20:56:04:INFO:sandbox.py:49:XTU process not found, launching now...
-2021-03-25 20:56:09:INFO:sandbox.py:53:XTU is launched with PID: 15984
-2021-03-25 20:56:09:INFO:sandbox.py:66:Cant find window... Wait for 1s
-2021-03-25 20:56:10:INFO:sandbox.py:66:Cant find window... Wait for 1s
-2021-03-25 20:56:11:INFO:sandbox.py:66:Cant find window... Wait for 1s
-2021-03-25 20:56:12:INFO:sandbox.py:66:Cant find window... Wait for 1s
-2021-03-25 20:56:13:INFO:sandbox.py:66:Cant find window... Wait for 1s
-2021-03-25 20:56:14:INFO:sandbox.py:66:Cant find window... Wait for 1s
-2021-03-25 20:56:15:INFO:sandbox.py:62:Window: <Win32Window left="0", top="0", width="2560", height="1040", title="Intel® Extreme Tuning Utility">
-2021-03-25 20:56:16:INFO:sandbox.py:88:Killing XUT now...
+2021-03-27 10:34:00:INFO:rojak.py:42:XTU process not found, launching now...
+2021-03-27 10:34:05:INFO:rojak.py:46:XTU is launched with PID: 16680
+2021-03-27 10:34:05:INFO:rojak.py:61:Cant find window... Wait for 1s
+2021-03-27 10:34:06:INFO:rojak.py:61:Cant find window... Wait for 1s
+2021-03-27 10:34:07:INFO:rojak.py:61:Cant find window... Wait for 1s
+2021-03-27 10:34:08:INFO:rojak.py:61:Cant find window... Wait for 1s
+2021-03-27 10:34:09:INFO:rojak.py:61:Cant find window... Wait for 1s
+2021-03-27 10:34:10:INFO:rojak.py:61:Cant find window... Wait for 1s
+2021-03-27 10:34:11:INFO:rojak.py:56:Window: <Win32Window left="0", top="0", width="2560", height="1040", title="Intel® Extreme Tuning Utility">
