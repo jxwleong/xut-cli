@@ -35,28 +35,29 @@ def get_all_xtu_process(process_name_list=XTU_PROCESS_NAME):
     for process in process_name_list:
         if get_process_pid(process) is not None:
             pid_dict[process] = get_process_pid(process)
-    import json
-
-    logger.info(    json.dumps(pid_dict))
+    logger.info(f'Process found! {pid_dict}')
     return pid_dict
 
 def is_xtu_running(process_name_list=XTU_PROCESS_NAME):
     logger.info(f'Checking whether XTU is already running...')
     for process in process_name_list:
         if is_process_running(process) is True:
+            logger.info(f'XTU is running now...')
             return True
+    logger.info(f'XTU is not running!')        
     return False
 
 def kill_process_with_pid(pid):
     try:
         subprocess.Popen(f'taskkill /F /PID {pid}',
                          stdout=subprocess.DEVNULL)
-        logger.info(f'The process with PID {pid} has been terminated')
+        logger.debug(f'The process with PID {pid} has been terminated')
     except:
         logger.error(f'Unable to terminate process with PID {pid}')
         raise Exception(f'Unable to terminate process with PID {pid}')
 
 def kill_all_xtu_process(process_name_list=XTU_PROCESS_NAME):
     process_dict = get_all_xtu_process()
+    logger.info(f'Killing the following process {process_dict}')
     for process, process_pid in process_dict.items():
         kill_process_with_pid(process_pid)

@@ -1,18 +1,26 @@
-2021-03-27 15:54:11:INFO:process.py:44:Checking whether XTU is already running...
-2021-03-27 15:54:11:INFO:xtucli.py:29:XTU process not found, launching now...
-2021-03-27 15:54:16:INFO:xtucli.py:45:Grabbing XTU window, retries(0/5)
-2021-03-27 15:54:21:INFO:xtucli.py:45:Grabbing XTU window, retries(1/5)
-2021-03-27 15:54:26:INFO:xtucli.py:39:XTU window found!
-2021-03-27 15:54:26:INFO:xtucli.py:40:Window: <Win32Window left="0", top="0", width="1150", height="680", title="Intel® Extreme Tuning Utility">
-2021-03-27 15:54:28:INFO:clicker.py:17:Click on button 'STRESS_TEST_SIDEBAR' with coordinate [65, 205] with number of click: 1 and interval: 0
-2021-03-27 15:54:28:INFO:clicker.py:17:Click on button 'STRESS_TEST_CPU_CHECKBOX' with coordinate [245, 130] with number of click: 1 and interval: 0
-2021-03-27 15:54:28:INFO:clicker.py:17:Click on button 'START_TESTING' with coordinate [300, 330] with number of click: 1 and interval: 0
-2021-03-27 15:54:28:INFO:clicker.py:17:Click on button 'FILE_LOGGING' with coordinate [905, 460] with number of click: 1 and interval: 0
-2021-03-27 15:54:39:INFO:clicker.py:17:Click on button 'FILE_LOGGING' with coordinate [905, 460] with number of click: 1 and interval: 0
-2021-03-27 15:54:39:INFO:clicker.py:17:Click on button 'STOP_TESTING' with coordinate [300, 180] with number of click: 1 and interval: 0
-2021-03-27 15:54:39:INFO:xtucli.py:65:Check log file at: C:\ProgramData\Intel\Intel Extreme Tuning Utility\Monitor Logs
-2021-03-27 15:54:41:INFO:process.py:33:Searching PID for XTU relevent process...
-2021-03-27 15:54:41:INFO:process.py:40:{"XtuService.exe": 11600, "XtuUiLauncher.exe": 18232, "PerfTune.exe": 8256}
-2021-03-27 15:54:41:INFO:process.py:54:The process with PID 11600 has been terminated
-2021-03-27 15:54:41:INFO:process.py:54:The process with PID 18232 has been terminated
-2021-03-27 15:54:41:INFO:process.py:54:The process with PID 8256 has been terminated
+2021-03-27 19:41:32:INFO:process.py:42:Checking whether XTU is already running...
+2021-03-27 19:41:32:INFO:process.py:47:XTU is not running!
+2021-03-27 19:41:32:INFO:xtu_cli.py:29:XTU process not found, launching now...
+2021-03-27 19:41:38:INFO:interfacer.py:47:Grabbing XTU window with title 'eXtreme Tuning Utility', retry in 5 seconds (0/5)
+2021-03-27 19:41:43:INFO:interfacer.py:47:Grabbing XTU window with title 'eXtreme Tuning Utility', retry in 5 seconds (1/5)
+2021-03-27 19:41:49:INFO:interfacer.py:47:Grabbing XTU window with title 'eXtreme Tuning Utility', retry in 5 seconds (2/5)
+2021-03-27 19:41:54:INFO:interfacer.py:47:Grabbing XTU window with title 'eXtreme Tuning Utility', retry in 5 seconds (3/5)
+2021-03-27 19:41:59:INFO:interfacer.py:40:XTU window found!
+2021-03-27 19:41:59:INFO:interfacer.py:41:Window: <Win32Window left="705", top="180", width="1150", height="680", title="Intel® Extreme Tuning Utility">
+2021-03-27 19:42:00:DEBUG:interfacer.py:22:Click on button 'STRESS_TEST_SIDEBAR' with coordinate [770, 385] with number of click: 1 and interval: 0
+2021-03-27 19:42:01:DEBUG:interfacer.py:22:Click on button 'STRESS_TEST_CPU_CHECKBOX' with coordinate [950, 310] with number of click: 1 and interval: 0
+2021-03-27 19:42:01:DEBUG:interfacer.py:22:Click on button 'START_TESTING' with coordinate [1005, 510] with number of click: 1 and interval: 0
+2021-03-27 19:42:02:DEBUG:interfacer.py:22:Click on button 'FILE_LOGGING' with coordinate [1610, 640] with number of click: 1 and interval: 0
+2021-03-27 19:43:00:INFO:xtu_cli.py:53:Start time: 27/03/21 11:42:00 Current time: 27/03/21 11:43:00 
+2021-03-27 19:44:00:INFO:xtu_cli.py:53:Start time: 27/03/21 11:42:00 Current time: 27/03/21 11:44:00 
+2021-03-27 19:45:00:INFO:xtu_cli.py:53:Start time: 27/03/21 11:42:00 Current time: 27/03/21 11:45:00 
+2021-03-27 19:46:00:INFO:xtu_cli.py:53:Start time: 27/03/21 11:42:00 Current time: 27/03/21 11:46:00 
+2021-03-27 19:47:00:INFO:xtu_cli.py:53:Start time: 27/03/21 11:42:00 Current time: 27/03/21 11:47:00 
+2021-03-27 19:47:00:DEBUG:interfacer.py:22:Click on button 'FILE_LOGGING' with coordinate [1610, 640] with number of click: 1 and interval: 0
+2021-03-27 19:47:01:DEBUG:interfacer.py:22:Click on button 'STOP_TESTING' with coordinate [1005, 360] with number of click: 1 and interval: 0
+2021-03-27 19:47:01:INFO:xtu_cli.py:58:Check log file at: C:\ProgramData\Intel\Intel Extreme Tuning Utility\Monitor Logs
+2021-03-27 19:47:01:INFO:process.py:33:Searching PID for XTU relevent process...
+2021-03-27 19:47:01:INFO:process.py:38:Process found! {'XtuService.exe': 16708, 'XtuUiLauncher.exe': 16712}
+2021-03-27 19:47:01:INFO:process.py:61:Killing the following process {'XtuService.exe': 16708, 'XtuUiLauncher.exe': 16712}
+2021-03-27 19:47:02:DEBUG:process.py:54:The process with PID 16708 has been terminated
+2021-03-27 19:47:02:DEBUG:process.py:54:The process with PID 16712 has been terminated
