@@ -39,7 +39,7 @@ LOG_CONFIG = {
     },
     'loggers': {
         '': { # Root
-            'level': 'WARNING',
+            'level': 'DEBUG',
             'handlers': ['console', 'file'],
             'propagate': False,
         },
@@ -47,7 +47,7 @@ LOG_CONFIG = {
             'level': 'DEBUG',
             'handlers': ['console', 'file'],
             'propagate': False,
-        },
+        },      
     },
 }
 
