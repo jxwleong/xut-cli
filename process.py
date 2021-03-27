@@ -11,6 +11,7 @@ sys.path.insert(0, ROOT_DIR)
 
 from common.CONSTANT import *
 
+
 def get_process_pid(process_name):
     for proc in psutil.process_iter():
         if proc.name() == process_name:

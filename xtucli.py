@@ -14,11 +14,12 @@ sys.path.insert(0, ROOT_DIR)
 from image_path import stress_test_image_path
 from logger import my_logger
 from common.CONSTANT import *
+from common.coordinate import Coordinate
+from common.coordinate import calculate_active_button_coordinate
 import process as ps
 import arg_parse
 
 logger = logging.getLogger(__name__)
-
 
 
 if ps.is_xtu_running() is True:
@@ -48,9 +49,7 @@ while window_found is False:
         continue
 time.sleep(1)
 
-
-# x = xtu_window.left
-# y = xtu_window.top
+window_coordiate = Coordinate(xtu_window.left, xtu_window.top)
 
 # if xtu_window.isMaximized is True:
 #     pyautogui.click(x+331, y+14, clicks=2)

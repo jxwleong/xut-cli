@@ -1,0 +1,7 @@
+language: python
+
+before script:
+  - cd test
+
+script:
+  - python -m unittest
