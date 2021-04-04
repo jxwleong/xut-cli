@@ -1,0 +1,5 @@
+pywin32==300
+PyGetWindow==0.0.9
+colorama==0.4.4
+psutil==5.8.0
+PyAutoGUI==0.9.52
