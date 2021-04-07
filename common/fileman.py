@@ -21,6 +21,19 @@ pattern = 'MonitorLog(\\d{4}-\\d{2}-\\d{2})_(\\d{2}-\\d{2}-\\d{2}-\\d{3})'
 
 a = re.findall(pattern,  'MonitorLog2021-03-27_19-42-02-296.txt')
 
+def get_log_timestamp(log, pattern):
+    """
+    Get timestamp of MonitorLog name using regular expression
+
+    :param log (str): Name of MonitorLog
+    :param pattern (str): Regular expression pattern
+    :return (tuple): Matched pattern tuple
+
+    :Example:
+    MonitorLog2021-03-27_19-42-02-296.txt => [('2021-03-27', '19-42-02-296')] 
+    """
+    return re.findall(pattern,  log)
+
 def remove_dash_in_list(list_):
     """
     Remove the dash for str element in list,
@@ -51,6 +64,7 @@ def log_timestamp_to_integer(log):
     :Example:
     MonitorLog2021-03-27_19-34-24-832.txt => 20210327193424832
     """
+
 # # Replace '-' => ''
 # print(type(a_list[0]))
 # a_list[0] = a_list[0].replace('-', '')
