@@ -64,7 +64,17 @@ def log_timestamp_to_integer(log):
     :Example:
     MonitorLog2021-03-27_19-34-24-832.txt => 20210327193424832
     """
+    matched_tuple = get_log_timestamp(log=log,
+                                      pattern='MonitorLog(\\d{4}-\\d{2}-\\d{2})_(\\d{2}-\\d{2}-\\d{2}-\\d{3})'
+                                     )
+    matched_list = tuple2list(matched_tuple)
+    timestamp_list = remove_dash_in_list(matched_list)
 
+    # The list must only contain two element (date, time)
+    if len(timestamp_list) == 2:
+        timestamp_in_int = int(timestamp_list[0] + timestamp_list[1])
+        return timestamp_in_int
+    raise ValueError(f"Expecting size of list is 2 but received {len(timestamp_list)}")
 # # Replace '-' => ''
 # print(type(a_list[0]))
 # a_list[0] = a_list[0].replace('-', '')
