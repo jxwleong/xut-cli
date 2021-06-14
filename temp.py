@@ -1,16 +1,18 @@
 import subprocess
+import sys
+import time
 import uiautomation as auto
 auto.uiautomation.SetGlobalSearchTimeout(15)  # set new timeout 15
 
 xtu_exe = r"C:\Program Files\Intel\Intel(R) Extreme Tuning Utility\Client\XtuUiLauncher.exe"
 prime95=r"G:\MyProjects\xprime95\p95v303b6.win32\prime95.exe"
 def main():
-    subprocess.Popen(xtu_exe)
+    proc = subprocess.Popen(xtu_exe)
     window = auto.WindowControl(searchDepth=1, ClassName="Window", Name="Intel® Extreme Tuning Utility")
     print("BEFORE")
     #window = auto.WindowControl(searchDept=1, Name="Prime95")
     print("AFTER")
-    if auto.WaitForExist(window, 3):
+    if auto.WaitForExist(window, 30):
         print('FOUND!')
     else:
         print('NOT!')
@@ -18,8 +20,31 @@ def main():
     print(window)
     print("HELL")
     edit = window.ButtonControl(searchDepth=2, ClassName="Button", AutomationId="Navigation:StressTesting")
+    print(type(edit))
     edit.Click()
+    
+    checkbox = window.CheckBoxControl(searchDepth=3, ClassName="CheckBox", AutomationId="StressTestSelected:CpuTest")
+    #edit.Click()
+    print(type(checkbox))
+    print(checkbox)
+    #print(checkbox.GetTogglePattern())
+    checkbox.GetTogglePattern().Toggle()
 
+    start = window.ButtonControl(searchDepth=3, ClassName="Button", AutomationId="StressTestStartButton")
+    print(type(start))
+    start.Click()
+    
+    time.sleep(5)
+
+    end = window.ButtonControl(searchDepth=3, ClassName="Button", AutomationId="StressTestStopButton")
+    print(type(end))
+    end.Click()
+
+    #proc.terminate()
+    subprocess.call("taskkill /f /im XtuUiLauncher.exe")
+    subprocess.call("taskkill /f /im XtuService.exe")
+    subprocess.call("taskkill /f /im PerfTune.exe")
+    #edit.GetValuePattern().SetValue('Hello')
     # when calling SendKeys, uiautomation starts to search window and edit in 15 seconds
     # because SendKeys indirectly calls Control.Element and Control.Element is None
     # if window and edit don't exist in 15 seconds, a LookupError exception will be raised
@@ -51,3 +76,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    sys.exit(0)
