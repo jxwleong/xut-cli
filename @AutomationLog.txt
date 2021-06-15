@@ -21,3 +21,8 @@
 2021-06-14 20:19:58.025 temp.py[26] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
 2021-06-14 20:28:12.974 temp.py[28] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
 2021-06-14 20:34:51.731 temp.py[34] main -> Find Control Timeout: {ClassName: 'Button', AutomationId: 'StressTestStartButton', ControlType: ButtonControl}
+2021-06-15 20:22:23.315 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:ProcessorHybridArchitecture', ControlType: TextControl}
+2021-06-15 20:24:35.417 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:GraphicsDACType1 ', ControlType: TextControl}
+2021-06-15 20:25:57.987 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:GraphicsDACType1 ', ControlType: TextControl}
+2021-06-15 20:26:32.297 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:GraphicsDACType1 ', ControlType: TextControl}
+2021-06-15 20:27:51.707 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:OperaingSystemServicePack', ControlType: TextControl}
