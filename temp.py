@@ -7,54 +7,39 @@ auto.uiautomation.SetGlobalSearchTimeout(15)  # set new timeout 15
 xtu_exe = r"C:\Program Files\Intel\Intel(R) Extreme Tuning Utility\Client\XtuUiLauncher.exe"
 prime95=r"G:\MyProjects\xprime95\p95v303b6.win32\prime95.exe"
 
-SysInfo = {
-    # PROCESSOR
-    "brand_string": "SystemInfo:ProcessorBrandString",
-    "family_string": "SystemInfo:ProcessorFamilyString",
-    "physical_core": "SystemInfo:ProcessorPhysicalCpuCores",
-    "logical_core": "SystemInfo:ProcessorLogicalCpuCores" ,
-    "possible_turbo_bins": "SystemInfo:ProcessorOverclockableTurboBins",
-    "turbo_overclockable": "SystemInfo:ProcessorTurboOverclockable",
-    "feature_flags": "SystemInfo:ProcessorFeatureFlags",
-    "instructions": "SystemInfo:ProcessorInstructions",
-    "intel_turbo_boost_max": "SystemInfo:ProcessorFavoredCoreSupported",
-    "intel_speed_shift": "SystemInfo:ProcessorHwpEnabled",
-    "microcode_update": "SystemInfo:ProcessorMicrocodeUpdate",
-    "hybrid_core": "SystemInfo:ProcessorIsHybridArchitecture",            
 
-    # Graphics
-    "graphic_0": "SystemInfo:GraphicsName0",
-    "gfx0_compatibility": "SystemInfo:GraphicsCompatibility0",
-    "gfx0_ram": "SystemInfo:GraphicsRAM0",
-    "gfx0_dac": "SystemInfo:GraphicsDACType0",
-    "gfx0_driver_version": "SystemInfo:GraphicsDriverVersion0",
-    "gfx0_driver_date": "SystemInfo:GraphicsDriverDate0",
+def sys_info():
+    text = []
+    proc = subprocess.Popen(xtu_exe)
+    window = auto.WindowControl(searchDepth=1, ClassName="Window", Name="Intel® Extreme Tuning Utility")
 
-    "graphic_1": "SystemInfo:GraphicsName1",
-    "gfx1_compatibility": "SystemInfo:GraphicsCompatibility1",
-    "gfx1_ram": "SystemInfo:GraphicsRAM1", 
-    "gfx1_dac": "SystemInfo:GraphicsDACType1",
-    "gfx1_driver_version": "SystemInfo:GraphicsDriverVersion1",
-    "gfx1_driver_date": "SystemInfo:GraphicsDriverDate1",
+    if auto.WaitForExist(window, 30):
+        print("Window found!")
+    else:
+        print("Window don't exists!")
 
-    # Operating System
-    "os_manufacturer": "SystemInfo:OperatingSystemManufacturer",
-    "os_name": "SystemInfo:OperatingSystemName",
-    "os_version": "SystemInfo:OperatingSystemVersion",
-    "os_service_pack": "SystemInfo:OperatingSystemServicePack",
-    "os_system_name": "SystemInfo:OperatingSystemSystemName",
-    "os_boot_device": "SystemInfo:OperatingSystemBootDevice",
+    system_info_custom = auto.CustomControl(searchDepth=2, ClassName="SystemInfoView")
+    for item, depth in auto.WalkControl(system_info_custom, includeTop=True):
+        if item.Name not in ["Welcome to Intel Extreme Tuning Utility", 
+            "Intel Extreme Tuning Utility is a state-of-the-art overclocking solution for Intel IA-based platforms. It is a comprehensive set of tools to tune, test and monitor your system.Click on the link to learn more about  Overclocking  and  XTU",
+            "How do I overclock with it?", 
+            "The platform does not support overclocking. For best Overclocking performance, please check Intel K- and X-series Processors."] and  \
+        item.ClassName == "TextBlock":
+               text.append(item.Name)
 
-    # Watchdog
-    "watchdog_support": "SystemInfo:WatchdogWatchdogPresent",
-    "watchdog_run_at_boot": "SystemInfo:WatchdogRunningAtBoot",
-    "watchdog_failed": "SystemInfo:WatchdogFailed",
+    # Reference: https://stackoverflow.com/a/21752685
+    it = iter(text)
+    for x in it:
+        if x in ["Processor", "Graphics", "Operating System", "Watchdog", "Memory",
+            "BIOS", "Motherboard", "XTU"]:
+            print("\n")
+            print(x)    
+        else:
+            print(f"{x}: {next(it)}")
 
-    # Memory
-    #"memory_installed": "SystemInfo:MemoryTotalInstalledMemory",
-    #"memory_bank0": "SystemInfo:MemoryBankLabel0",
-    #"memory_
-}
+    subprocess.call("taskkill /f /im XtuUiLauncher.exe")
+    subprocess.call("taskkill /f /im XtuService.exe")
+    subprocess.call("taskkill /f /im PerfTune.exe")
 
 def main():
     proc = subprocess.Popen(xtu_exe)
@@ -70,9 +55,6 @@ def main():
     print(window)
     print("HELL")
 
-    for key, value in SysInfo.items():
-        text = window.TextControl(searchDepth=3, ClassName="TextBlock", AutomationId=value)
-        print(f"{key}: {text.Name}")
 
     text = window.TextControl(searchDepth=3, ClassName="TextBlock", AutomationId="SystemInfo:ProcessorBrandString")
     print(text)
@@ -137,5 +119,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    #main()
+    sys_info()
     sys.exit(0)

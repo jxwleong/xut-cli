@@ -26,3 +26,6 @@
 2021-06-15 20:25:57.987 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:GraphicsDACType1 ', ControlType: TextControl}
 2021-06-15 20:26:32.297 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:GraphicsDACType1 ', ControlType: TextControl}
 2021-06-15 20:27:51.707 temp.py[75] main -> Find Control Timeout: {ClassName: 'TextBlock', AutomationId: 'SystemInfo:OperaingSystemServicePack', ControlType: TextControl}
+2021-06-16 18:06:50.967 temp.py[72] sys_info -> Find Control Timeout: {ControlType: TreeControl}
+2021-06-16 18:09:03.827 temp.py[73] sys_info -> Find Control Timeout: {ControlType: TreeControl}
+2021-06-16 18:11:19.935 temp.py[73] sys_info -> Find Control Timeout: {ClassName: 'SystemInfoView', AutomationId: 'PrimarySystemInfoView', ControlType: WindowControl}
