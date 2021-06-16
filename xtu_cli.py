@@ -56,5 +56,4 @@ while time.time() < end:
 i.click(window_coordinate, button='FILE_LOGGING')
 i.click(window_coordinate, button='STOP_TESTING')
 logger.info(f'Check log file at: C:\ProgramData\Intel\Intel Extreme Tuning Utility\Monitor Logs')
-    
 ps.kill_all_xtu_process()

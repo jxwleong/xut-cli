@@ -41,6 +41,25 @@ def sys_info():
     subprocess.call("taskkill /f /im XtuService.exe")
     subprocess.call("taskkill /f /im PerfTune.exe")
 
+def get_supported_stress_test():
+    proc = subprocess.Popen(xtu_exe)
+    window = auto.WindowControl(searchDepth=1, ClassName="Window", Name="Intel® Extreme Tuning Utility")
+
+    if auto.WaitForExist(window, 30):
+        print("Window found!")
+    else:
+        print("Window don't exists!")
+
+    stress_test_custom = auto.CustomControl(searchDepth=2, ClassName="StressTestView")
+    print("Supported Stress Test")
+    for item, depth in auto.WalkControl(stress_test_custom, includeTop=True):
+        if item.ClassName == "CheckBox":
+            print(item.Name)
+
+    subprocess.call("taskkill /f /im XtuUiLauncher.exe")
+    subprocess.call("taskkill /f /im XtuService.exe")
+    subprocess.call("taskkill /f /im PerfTune.exe")
+
 def main():
     proc = subprocess.Popen(xtu_exe)
     window = auto.WindowControl(searchDepth=1, ClassName="Window", Name="Intel® Extreme Tuning Utility")
@@ -55,16 +74,6 @@ def main():
     print(window)
     print("HELL")
 
-
-    text = window.TextControl(searchDepth=3, ClassName="TextBlock", AutomationId="SystemInfo:ProcessorBrandString")
-    print(text)
-    print(type(text))
-    print(text.Name)
-
-    text = window.TextControl(searchDepth=3, ClassName="TextBlock", AutomationId="SystemInfo:ProcessorFamilyString")
-    print(text)
-    print(type(text))
-    print(text.Name)    
     # edit = window.ButtonControl(searchDepth=2, ClassName="Button", AutomationId="Navigation:StressTesting")
     # print(type(edit))
     # edit.Click()
@@ -121,4 +130,5 @@ def main():
 if __name__ == '__main__':
     #main()
     sys_info()
+    get_supported_stress_test()
     sys.exit(0)
