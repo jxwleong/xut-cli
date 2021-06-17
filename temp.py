@@ -35,6 +35,8 @@ def sys_info():
             print("\n")
             print(x)    
         else:
+            if x in ["Bank Label"]:
+                print("")
             print(f"{x}: {next(it)}")
 
     subprocess.call("taskkill /f /im XtuUiLauncher.exe")
