@@ -45,4 +45,7 @@ key, value = split_key_value(processor)
 processor_info = dict(zip(key,value))
 
 print("PROCESSOR")
-print(json.dumps(processor_info, sort_keys=False, indent=4))
+print(processor_info)
+# ensure_ascii is needed in order to print the copyright sign
+# else will just print \u00ae
+print(json.dumps(processor_info, sort_keys=False, ensure_ascii=False, indent=4))
