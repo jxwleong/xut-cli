@@ -431,6 +431,7 @@ def get_all_system_info(list_):
 
     return system_info
 
+
 class TestCase_get_all_system_information(unittest.TestCase):
     def test_get_all_system_information(self):
         copied_list = copy.copy(list_)
