@@ -1,7 +1,15 @@
 import subprocess
+import os
 import sys
 import time
-import uiautomation as auto
+
+ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.insert(0, ROOT_DIR)
+
+LIB_PATH = os.path.join(ROOT_DIR, "lib")
+sys.path.append(LIB_PATH)
+
+from lib import uiautomation as auto
 auto.uiautomation.SetGlobalSearchTimeout(15)  # set new timeout 15
 
 xtu_exe = r"C:\Program Files\Intel\Intel(R) Extreme Tuning Utility\Client\XtuUiLauncher.exe"
