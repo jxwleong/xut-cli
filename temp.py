@@ -3,10 +3,10 @@ import os
 import sys
 import time
 
-ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
-sys.path.insert(0, ROOT_DIR)
+REPO_ROOT = os.path.dirname(os.path.realpath(__file__))
+sys.path.insert(0, REPO_ROOT)
 
-LIB_PATH = os.path.join(ROOT_DIR, "lib")
+LIB_PATH = os.path.join(REPO_ROOT, "lib")
 sys.path.append(LIB_PATH)
 
 from lib import uiautomation as auto
@@ -15,45 +15,9 @@ auto.uiautomation.SetGlobalSearchTimeout(15)  # set new timeout 15
 xtu_exe = r"C:\Program Files\Intel\Intel(R) Extreme Tuning Utility\Client\XtuUiLauncher.exe"
 prime95=r"G:\MyProjects\xprime95\p95v303b6.win32\prime95.exe"
 
-excluded_sysinfo_text = ["Welcome to Intel Extreme Tuning Utility",
-            ("Intel Extreme Tuning Utility is a state-of-the-art overclocking solution for Intel IA-based platforms. " +
-            "It is a comprehensive set of tools to tune, test and monitor your system. " +
-            "Click on the link to learn more about  Overclocking  and  XTU"),
-            "How do I overclock with it?", 
-            "The platform does not support overclocking. For best Overclocking performance, please check Intel K- and X-series Processors."]
-sysinfo_title = ["Processor", "Graphics", "Operating System", "Watchdog", "Memory", "BIOS", "Motherboard", "XTU"]
 
-def sys_info():
-    text = []
-    proc = subprocess.Popen(xtu_exe)
-    window = auto.WindowControl(searchDepth=1, ClassName="Window", Name="Intel® Extreme Tuning Utility")
 
-    if auto.WaitForExist(window, 30):
-        print("Window found!")
-    else:
-        print("Window don't exists!")
 
-    system_info_custom = auto.CustomControl(searchDepth=2, ClassName="SystemInfoView")
-    for item, depth in auto.WalkControl(system_info_custom, includeTop=True):
-        if item.Name not in  excluded_sysinfo_text and  \
-        item.ClassName == "TextBlock":
-               text.append(item.Name)
-
-    print(text)
-    # Reference: https://stackoverflow.com/a/21752685
-    it = iter(text)
-    for x in it:
-        if x in sysinfo_title:
-            print("\n")
-            print(x)    
-        else:
-            if x in ["Bank Label"]:
-                print("")
-            print(f"{x}: {next(it)}")
-
-    subprocess.call("taskkill /f /im XtuUiLauncher.exe")
-    subprocess.call("taskkill /f /im XtuService.exe")
-    subprocess.call("taskkill /f /im PerfTune.exe")
 
 def get_supported_stress_test():
     proc = subprocess.Popen(xtu_exe)

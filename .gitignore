@@ -1,2 +1,4 @@
-__pycache__/autoit.cpython-39.pyc
-xtu_cli.log
+__pycache__
+*.pyc
+*.log
+*.json
