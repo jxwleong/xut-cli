@@ -1,5 +1,7 @@
 language: python
 
+os: windows
+
 before script:
   - cd test
 
