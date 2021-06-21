@@ -1,6 +1,6 @@
 language: python
 
-os: windows
+os: linux
 
 before script:
   - cd test
