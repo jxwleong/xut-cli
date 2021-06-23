@@ -276,6 +276,19 @@ def get_all_system_info(list_):
     _, xtu = get_system_information_list(list_, start="XTU")
     system_info["XTU"] = dict(xtu)
 
+    print(system_info)
+    from dicttoxml import dicttoxml
+    #xml_ = dicttoxml(system_info, attr_type=False).decode("utf-8") 
+    xml_ = dicttoxml(system_info, attr_type=False)
+    print(xml_)
+    import xml.etree.ElementTree as ET
+    tree = ET.ElementTree(ET.fromstring(xml_))
+    root = tree.getroot()
+    #root = ET.fromstring(xml_)
+
+    from xml.dom import minidom
+    xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ")
+    print(xmlstr)
     return system_info
 
 
