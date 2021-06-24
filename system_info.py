@@ -277,7 +277,7 @@ def get_all_system_info(list_):
     system_info["XTU"] = dict(xtu)
 
     print(system_info)
-    from dicttoxml import dicttoxml
+    from lib.dicttoxml import dicttoxml
     #xml_ = dicttoxml(system_info, attr_type=False).decode("utf-8") 
     xml_ = dicttoxml(system_info, attr_type=False)
     print(xml_)
