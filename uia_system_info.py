@@ -50,7 +50,7 @@ def uia_get_system_info_list():
 
     system_info_dict = get_all_system_info(text)
     
-    #dict2file("system_info.json", DataType.Json, system_info_dict)
+    dict2file("system_info.json", DataType.Json, system_info_dict)
     dict2file("system_info.xml", DataType.Xml, system_info_dict)
 
     subprocess.call("taskkill /f /im XtuUiLauncher.exe")
@@ -71,14 +71,11 @@ def dict2file(file: str, file_type: DataType, data: dict) -> str:
     # wb will preserve the unicode UTF-8 format so that can write "®" to file.
     with open(file, "wb") as f:
         if file_type is DataType.Json:
-            f.write(json.dumps(data, sort_keys=False, ensure_ascii=False, indent=4).encode('utf8'))
+            f.write(json.dumps(data, sort_keys=False, ensure_ascii=False, indent=4).encode('UTF-8'))
         else:
             xml_ = dicttoxml(data, attr_type=False)
-            tree = ET.ElementTree(ET.fromstring(xml_))
-            root = tree.getroot()
-            xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ")
-            f.write(xmlstr.encode('utf8'))
-
+            pretty_xml = minidom.parseString(xml_.decode("utf-8")).toprettyxml(encoding="UTF-8")
+            f.write(pretty_xml)
 
 
     return file
