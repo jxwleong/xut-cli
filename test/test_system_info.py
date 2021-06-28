@@ -111,6 +111,12 @@ class TestCase_get_size_of_element(unittest.TestCase):
                     ('DAC Type', 'Internal'), ('Driver Version', '20.19.15.4454'), ('Driver Date', '4/5/2016')]
         self.assertEqual(6, get_size_of_element(graphic_list, "Name", "Name"))
 
+        graphic_list = [('Name', 'NVIDIA GeForce GTX 960M'), ('Compatibility', 'NVIDIA'), ('RAM', '2.00 GB'), 
+                    ('DAC Type', 'Integrated RAMDAC'), ('Driver Version', '27.21.14.6109'), ('Driver Date', '31/12/2020'), 
+                    ('Operating System', 'WHAT!?')]
+        self.assertEqual(6, get_size_of_element(graphic_list, "Name", "Name", wildcard=True))
+
+
     def test_get_size_of_element_throw_exception(self):
         graphic_list = [('Name', 'NVIDIA GeForce GTX 960M'), ('Compatibility', 'NVIDIA'), ('RAM', '2.00 GB'), 
                     ('DAC Type', 'Integrated RAMDAC'), ('Driver Version', '27.21.14.6109'), ('Driver Date', '31/12/2020'), 

@@ -71,7 +71,7 @@ def get_system_information_list(list_: list, start: str, end: str=None) -> list:
     return list_, device_list
 
 
-def get_size_of_element(list_, start, end):
+def get_size_of_element(list_, start, end, wildcard=False):
     """
     Get the size of the element so that we know when to stop if
     there's more than one devices.
@@ -88,6 +88,7 @@ def get_size_of_element(list_, start, end):
                                     ('DAC Type', 'Internal'), ('Driver Version', '20.19.15.4454'), ('Driver Date', '4/5/2016')]
         start (str): Start key
         end (str): End key
+        wildcard (bool): Set to True to ignore the exception if end is not meet with start.
 
     Example (start - Name, end - Name):
         Name: NVIDIA GeForce GTX 960M
@@ -114,11 +115,15 @@ def get_size_of_element(list_, start, end):
             return count  # Multiply by 2 because it's dict
         else:
             count += 1
+    if wildcard is True: 
+        count -= 1  # Minus the increment from previous for loop
+        return count
     raise Exception(f"\nlist_: {list_}\n"
                     f"start: {start}\n"
                     f"end: {end}\n"
                     f"Either the start or end is NOT in the list_.")
  
+
 def remove_multiple_element_in_list(list_: list, element_to_remove: list) -> list:
     """ Remove the elements in a list and return the updated list.
  
@@ -176,7 +181,7 @@ def get_graphic_info(list_):
     """
     graphics = []
     graphic_dict = {}
-    device_element_size = get_size_of_element(list_, "Name", "Name")
+    device_element_size = get_size_of_element(list_, "Name", "Name", wildcard=True)
     number_of_device = int(len(list_)/device_element_size)
 
     for main_index in range(0, number_of_device):
@@ -223,7 +228,7 @@ def get_memory_info(list_):
     # As first element of the main memory_dict
     memory_dict[list_[0][0]] = list_[0][1]
     list_.remove(list_[0])
-    device_element_size = get_size_of_element(list_, "Bank Label", "Bank Label")
+    device_element_size = get_size_of_element(list_, "Bank Label", "Bank Label", wildcard=True)
     number_of_device = int(len(list_)/device_element_size)
 
     for main_index in range(0, number_of_device):
@@ -257,6 +262,7 @@ def get_all_system_info(list_):
         system_info (dict): All the information extract from XUT System Info Pane in dictionary format.
     """
     system_info = {}
+
 
     _, processor_list = get_system_information_list(list_, start="Processor", end="Graphics")
     system_info["Processor"] = dict(processor_list)
