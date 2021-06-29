@@ -4,7 +4,7 @@ import json
 
 excluded_sysinfo_text = ["Welcome to Intel Extreme Tuning Utility",
             ("Intel Extreme Tuning Utility is a state-of-the-art overclocking solution for Intel IA-based platforms. " +
-            "It is a comprehensive set of tools to tune, test and monitor your system. " +
+            "It is a comprehensive set of tools to tune, test and monitor your system." +
             "Click on the link to learn more about  Overclocking  and  XTU"),
             "How do I overclock with it?", 
             "The platform does not support overclocking. For best Overclocking performance, please check Intel K- and X-series Processors."]
@@ -153,8 +153,6 @@ def list_with_dict_element_to_dict(list_: list, prefix: str):
         dict_ (dict): Dict where the elements are extracted from list_
     """
     dict_ = {}
-    print(prefix)
-    print(list_)
     #if len(list_) <= 1: raise Exception(f"Expecting list with multiple element but received list with {len(list_)} element")
     for index, element in enumerate(list_):
         if isinstance(element, dict) is False:  raise TypeError(f"Expecting dict element in list_ but received {element}")

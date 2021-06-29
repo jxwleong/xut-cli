@@ -43,11 +43,12 @@ def uia_get_system_info_list():
         print("Window don't exists!")
 
     system_info_custom = auto.CustomControl(searchDepth=2, ClassName="SystemInfoView")
+    
     for item, depth in auto.WalkControl(system_info_custom, includeTop=True):
         if item.Name not in  excluded_sysinfo_text and  \
         item.ClassName == "TextBlock":
                text.append(item.Name)
-
+    
     system_info_dict = get_all_system_info(text)
     
     dict2file("system_info.json", DataType.Json, system_info_dict)
