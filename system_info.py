@@ -6,6 +6,9 @@ excluded_sysinfo_text = ["Welcome to Intel Extreme Tuning Utility",
             ("Intel Extreme Tuning Utility is a state-of-the-art overclocking solution for Intel IA-based platforms. " +
             "It is a comprehensive set of tools to tune, test and monitor your system." +
             "Click on the link to learn more about  Overclocking  and  XTU"),
+            ("Intel Extreme Tuning Utility is a state-of-the-art overclocking solution for Intel IA-based platforms. " +
+            "It is a comprehensive set of tools to tune, test and monitor your system. " +
+            "Click on the link to learn more about  Overclocking  and  XTU"),
             "How do I overclock with it?", 
             "The platform does not support overclocking. For best Overclocking performance, please check Intel K- and X-series Processors."]
 sysinfo_title = ["Processor", "Graphics", "Operating System", "Watchdog", "Memory", "BIOS", "Motherboard", "XTU"]

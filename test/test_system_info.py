@@ -156,6 +156,7 @@ class TestCase_list_with_dict_element_to_dict(unittest.TestCase):
                         'Internal', 'Driver Version': '20.19.15.4454', 'Driver Date': '4/5/2016'}}
         self.assertEqual(expected_dict, list_with_dict_element_to_dict(list_, prefix="GRAPHIC_"))
         
+    @unittest.skip("Skip as this function remove this exception")
     def test_list_with_dict_element_to_dict_given_one_element_expect_Exception(self):
         list_ = [{"Name": "Intel"}]
         self.assertRaises(Exception, list_with_dict_element_to_dict, list_, prefix="GRAPHIC_")
