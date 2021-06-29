@@ -153,7 +153,9 @@ def list_with_dict_element_to_dict(list_: list, prefix: str):
         dict_ (dict): Dict where the elements are extracted from list_
     """
     dict_ = {}
-    if len(list_) <= 1: raise Exception(f"Expecting list with multiple element but received list with {len(list_)} element")
+    print(prefix)
+    print(list_)
+    #if len(list_) <= 1: raise Exception(f"Expecting list with multiple element but received list with {len(list_)} element")
     for index, element in enumerate(list_):
         if isinstance(element, dict) is False:  raise TypeError(f"Expecting dict element in list_ but received {element}")
         dict_[prefix + str(index)] = element
