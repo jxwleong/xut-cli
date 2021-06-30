@@ -29,3 +29,15 @@
 2021-06-16 18:06:50.967 temp.py[72] sys_info -> Find Control Timeout: {ControlType: TreeControl}
 2021-06-16 18:09:03.827 temp.py[73] sys_info -> Find Control Timeout: {ControlType: TreeControl}
 2021-06-16 18:11:19.935 temp.py[73] sys_info -> Find Control Timeout: {ClassName: 'SystemInfoView', AutomationId: 'PrimarySystemInfoView', ControlType: WindowControl}
+2021-06-30 19:06:52.398 temp.py[62] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:07:25.317 temp.py[62] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:10:05.997 temp.py[61] main -> Find Control Timeout: {ClassName: 'ScrollViewer', AutomationID: 'StressTestScrollbar', ControlType: PaneControl}
+2021-06-30 19:10:32.551 temp.py[61] main -> Find Control Timeout: {ClassName: 'ScrollViewer', AutomationID: 'StressTestScrollbar', ControlType: PaneControl}
+2021-06-30 19:11:24.350 temp.py[61] main -> Find Control Timeout: {ClassName: 'ScrollViewer', AutomationID: 'StressTestScrollbar', ControlType: PaneControl}
+2021-06-30 19:12:46.484 temp.py[65] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:13:12.144 temp.py[65] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:13:35.915 temp.py[65] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:15:54.780 temp.py[71] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:18:43.946 temp.py[72] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:19:24.159 temp.py[72] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}
+2021-06-30 19:20:03.170 temp.py[72] main -> Find Control Timeout: {ClassName: 'CheckBox', AutomationId: 'StressTestSelected:CpuTest', ControlType: CheckBoxControl}

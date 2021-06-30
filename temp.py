@@ -49,14 +49,26 @@ def main():
     else:
         print('NOT!')
     #exit(0)
-    print(window)
+    print(window)                     
+
+
+    edit = window.ButtonControl(searchDepth=2, ClassName="Button", AutomationId="Navigation:StressTesting")
+    print(type(edit))
+    edit.Click()
+    
+    pane = auto.PaneControl(searchDepth=4, ClassName="ScrollViewer", AutomationID="StressTestScrollbar")
+    print(type(pane))
+    print(pane)
     print("HELL")
 
-    # edit = window.ButtonControl(searchDepth=2, ClassName="Button", AutomationId="Navigation:StressTesting")
-    # print(type(edit))
-    # edit.Click()
-    
-    # checkbox = window.CheckBoxControl(searchDepth=3, ClassName="CheckBox", AutomationId="StressTestSelected:CpuTest")
+    stress_test_custom = auto.CustomControl(searchDepth=4, ClassName="StressTestView")
+    checkbox = []
+    for item, depth in auto.WalkControl(stress_test_custom, includeTop=True):
+        if item.ClassName == "CheckBox":
+            print(type(item))
+            checkbox.append(item.Name)
+    print(checkbox)
+    # checkbox = pane.CheckBoxControl(searchDepth=3, ClassName="CheckBox", AutomationId="StressTestSelected:CpuTest")
     # print(type(checkbox))
     # print(checkbox)
     # checkbox.GetTogglePattern().Toggle()
@@ -106,7 +118,7 @@ def main():
 
 
 if __name__ == '__main__':
-    #main()
-    sys_info()
+    main()
+    #sys_info()
     #get_supported_stress_test()
     sys.exit(0)
