@@ -28,12 +28,18 @@ def get_supported_stress_test():
     else:
         print("Window don't exists!")
 
-    stress_test_custom = auto.CustomControl(searchDepth=2, ClassName="StressTestView")
-    print("Supported Stress Test")
+    stress_test_custom = auto.CustomControl(searchDepth=4, ClassName="StressTestView")
+    checkbox = []
     for item, depth in auto.WalkControl(stress_test_custom, includeTop=True):
         if item.ClassName == "CheckBox":
-            print(item.Name)
-
+            print(type(item))
+            ToggleButton = item.GetTogglePattern()
+            print("BEFORE toggle")
+            print(ToggleButton.ToggleState)
+            item.GetTogglePattern().Toggle()
+            print("AFTER toggle")
+            checkbox.append(item.Name)
+    print(checkbox)
     subprocess.call("taskkill /f /im XtuUiLauncher.exe")
     subprocess.call("taskkill /f /im XtuService.exe")
     subprocess.call("taskkill /f /im PerfTune.exe")
@@ -61,13 +67,7 @@ def main():
     print(pane)
     print("HELL")
 
-    stress_test_custom = auto.CustomControl(searchDepth=4, ClassName="StressTestView")
-    checkbox = []
-    for item, depth in auto.WalkControl(stress_test_custom, includeTop=True):
-        if item.ClassName == "CheckBox":
-            print(type(item))
-            checkbox.append(item.Name)
-    print(checkbox)
+ 
     # checkbox = pane.CheckBoxControl(searchDepth=3, ClassName="CheckBox", AutomationId="StressTestSelected:CpuTest")
     # print(type(checkbox))
     # print(checkbox)
