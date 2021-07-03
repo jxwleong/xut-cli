@@ -29,7 +29,7 @@ def get_supported_stress_test():
     else:
         print("Window don't exists!")
 
-    stress_test_custom = auto.CustomControl(searchDepth=4, ClassName="StressTestView")
+    stress_test_custom = auto.CustomControl(searchDepth=3, ClassName="StressTestView")
     checkbox = []
     for item, depth in auto.WalkControl(stress_test_custom, includeTop=True):
         if item.ClassName == "CheckBox":
@@ -43,7 +43,11 @@ def get_supported_stress_test():
             checkbox.append(item.Name)
     print(checkbox)
 
-    time.sleep(3)
+
+    start_button = stress_test_custom.ButtonControl(searchDepth=4, ClassName="Button", AutomationId="StressTestStartButton")
+    start_invoke = start_button.GetInvokePattern()
+    start_invoke.Invoke()
+    time.sleep(10)
     subprocess.call("taskkill /f /im XtuUiLauncher.exe")
     subprocess.call("taskkill /f /im XtuService.exe")
     subprocess.call("taskkill /f /im PerfTune.exe")
